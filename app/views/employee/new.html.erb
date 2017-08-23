@@ -2,22 +2,31 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@employee, url: signup_path) do |f| %>
+    <%= form_for(@employee, url: employee_new_path) do |f| %>
       <%= render 'shared/error_messages' %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :designation, "Designation" %>
+      <%= f.text_field :designation, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :age, "Age" %>
+      <%= f.number_field :age, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.label :date_of_joining, "Date of Joining" %>
+      <%= f.date_field :date_of_joining, class: 'form-control' %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.label :project, "Project Name" %>
+      <%= f.text_field :project, class: 'form-control' %>
+
+      <%= f.label :team_lead, "Team Lead" %>
+      <%= f.collection_select :team_lead, TeamLead.all, :id, :name, class: 'form-control' %>
+
+      <%= f.label :skills, "Skills" %>
+      <%= f.text_area :skills, class: 'form-control' %>
+
+      <%= f.submit "Add Employee", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
