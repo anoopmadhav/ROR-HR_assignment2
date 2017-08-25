@@ -1,0 +1,32 @@
+<h1>Edit employee skills</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% flash.each do |message_type,message| end %>
+    <%= form_for(@employee, url: "/employee/edit/"+@employee.id.to_s) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, :value => @employee.name, :readonly => true, class: 'form-control' %>
+
+      <%= f.label :designation, "Designation" %>
+      <%= f.text_field :designation, :value => @employee.designation, :readonly => true, class: 'form-control' %>
+
+      <%= f.label :age, "Age" %>
+      <%= f.number_field :age, :value => @employee.age, :readonly => true, class: 'form-control' %>
+
+      <%= f.label :date_of_joining, "Date of Joining" %>
+      <%= f.date_field :date_of_joining, :value => @employee.date_of_joining, :readonly => true, class: 'form-control' %>
+
+      <%= f.label :project, "Project Name" %>
+      <%= f.text_field :project, :value => @employee.project, :readonly => true, class: 'form-control' %>
+
+      <%= f.label :team_lead, "Team Lead" %>
+      <%= f.collection_select :team_lead, TeamLead.all, :name, :name, include_blank: true, :value => @employee.team_lead, :readonly => true, class: 'form-control' %>
+
+      <%= f.label :skills, "Skills" %>
+      <%= f.text_area :skills, :value => @employee.skills, class: 'form-control' %>
+
+      <%= f.submit "Edit employee skills", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

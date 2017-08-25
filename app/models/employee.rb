@@ -5,4 +5,5 @@ class Employee < ApplicationRecord
 	validates :date_of_joining, presence: true
 	validates :project, presence: true
 	validates :team_lead, presence: true
+	validates :skills, presence: true
 end
